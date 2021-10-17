@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isLoggedIn = false
+    @State private var isLoggingIn = false
+    @EnvironmentObject var viewModel: AuthenticationHelpers
+    
     var body: some View {
-        if !isLoggedIn {
+        if viewModel.signedIn {
+            MainView()
+        } else {
+        if !isLoggingIn {
             ZStack {
                 CustomColours.DarkGrey
                     .ignoresSafeArea()
@@ -25,14 +30,14 @@ struct ContentView: View {
                     Spacer()
                     
                     Button(action: {
-                        isLoggedIn = true
+                        isLoggingIn = true
                     }) {
                         ZStack {
                             RoundedRectangle(cornerRadius: 25.0)
                                 .fill(CustomColours.LightGrey)
                                 .frame(width: 270, height: 80, alignment: .center)
                         
-                            Text("Sign In With Google")
+                            Text("Sign In To Start")
                                 .font(.title3)
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.white)
@@ -42,7 +47,9 @@ struct ContentView: View {
             }
 
         } else {
-            HomeView()        }
+            AuthenticationView()
+        }
+    }
     }
 }
 
