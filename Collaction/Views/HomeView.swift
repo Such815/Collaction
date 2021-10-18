@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HomeView: View {
     @State private var isCreatingPost = false
+    @ObservedObject private var viewModel = PostsViewModel()
+    
     var body: some View {
         if(!isCreatingPost) {
             ZStack {
@@ -36,9 +38,17 @@ struct HomeView: View {
                     .padding()
                     
                     ScrollView {
-                        PostView()
+                        PullToRefresh(coordinateSpaceName: "refreshPosts") {
+                            viewModel.fetchData()
+                        }
+                        
+                        ForEach(viewModel.posts) { post in
+                            PostView(author: post.author, caption: post.caption, postURL: post.postURL)
+                        }
                     }
                 }
+            }.onAppear() {
+                viewModel.fetchData()
             }
         } else {
             CreatePostView()

@@ -7,8 +7,31 @@
 
 import SwiftUI
 
+extension String {
+    func load() -> UIImage {
+        do {
+            guard let url = URL(string: self) else {
+                return UIImage()
+            }
+            
+            let data: Data = try Data(contentsOf: url)
+            return UIImage(data: data) ?? UIImage()
+                
+        } catch {
+            print("URL Is not valid")
+        }
+        
+        return UIImage()
+    }
+}
+
 struct PostView: View {
+    var author = ""
+    var caption = ""
+    var postURL = ""
+    
     var body: some View {
+        
         ZStack {
             RoundedRectangle(cornerRadius: 25.0)
                 .fill(CustomColours.LightGrey)
@@ -18,12 +41,12 @@ struct PostView: View {
             VStack {
                 
                 HStack {
-                    Image("Waterfall")
+                    Image(systemName: "person.crop.circle")
                         .resizable()
-                        .frame(width: 60, height: 60)
+                        .frame(width: 50, height: 50)
                         .clipShape(Circle())
                         .padding([.leading, .bottom], 25.0)
-                    Text("Tim Cook")
+                    Text(author)//Author
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
@@ -35,15 +58,15 @@ struct PostView: View {
                         .padding(.all, 25.0)
                 }
                 
-                Image("Waterfall")
+                Image(uiImage: postURL.load())
                     .resizable()
-                    .padding(.bottom, 15)
-                    .frame(width: 320, height: 300)
-                    .cornerRadius(25.0)
+                     .padding(.bottom, 15)
+                     .frame(width: 320, height: 300)
+                     .cornerRadius(25.0)
                 
                 HStack {
                     
-                    Text("A Nice Waterfall.")
+                    Text(caption)//Caption
                         .font(.title3)
                         .fontWeight(.bold)
                         .foregroundColor(Color.white)
@@ -61,3 +84,4 @@ struct PostView_Previews: PreviewProvider {
         PostView()
     }
 }
+
