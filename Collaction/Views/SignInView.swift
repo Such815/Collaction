@@ -47,6 +47,7 @@ struct AuthenticationView: View {
                                 return
                             }
                             viewModel.signIn(email: email, password: password)
+                            UserDefaults.standard.set(true, forKey: userDefaults.isSingedIn)
                         }) {
                             RoundedRectangle(cornerRadius: 25.0)
                                 .fill(Color.blue)

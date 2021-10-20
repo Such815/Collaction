@@ -12,7 +12,7 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: AuthenticationHelpers
     
     var body: some View {
-        if viewModel.signedIn {
+        if UserDefaults.standard.bool(forKey: userDefaults.isSingedIn) {
             MainView()
         } else {
         if !isLoggingIn {

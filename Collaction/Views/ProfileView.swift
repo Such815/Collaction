@@ -41,6 +41,7 @@ struct ProfileView: View {
                 
                 Button(action: {
                     viewModel.signOut()
+                    UserDefaults.standard.set(false, forKey: userDefaults.isSingedIn)
                 }) {
                     ZStack {
                         RoundedRectangle(cornerRadius: 25.0)

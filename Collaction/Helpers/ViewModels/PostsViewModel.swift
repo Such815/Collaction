@@ -31,4 +31,14 @@ class PostsViewModel: ObservableObject {
             }
         }
     }
+    
+    func createPost(author: String, caption: String, postURL: String) {
+        do {
+            
+            let _ = try db.collection("posts").addDocument(data: ["author" : author, "caption" : caption, "postURL" : postURL])
+            
+        } catch {
+            print(error)
+        }
+    }
 }
