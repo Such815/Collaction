@@ -12,6 +12,7 @@
 		B90BDF26271FF42F0011D6A3 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = B90BDF25271FF42F0011D6A3 /* FirebaseFirestore */; };
 		B90BDF28271FF42F0011D6A3 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = B90BDF27271FF42F0011D6A3 /* FirebaseStorage */; };
 		B90BDF2A2720071B0011D6A3 /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B90BDF292720071B0011D6A3 /* UploadImage.swift */; };
+		B914AD722779F2790087374E /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = B914AD712779F2790087374E /* Introspect */; };
 		B9265183271BE45800F9B7E8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B9265182271BE45800F9B7E8 /* GoogleService-Info.plist */; };
 		B93CFC21271B181B003C1796 /* CollactionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93CFC20271B181B003C1796 /* CollactionApp.swift */; };
 		B93CFC23271B181B003C1796 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B93CFC22271B181B003C1796 /* ContentView.swift */; };
@@ -67,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B90BDF24271FF42F0011D6A3 /* FirebaseAuth in Frameworks */,
+				B914AD722779F2790087374E /* Introspect in Frameworks */,
 				B90BDF26271FF42F0011D6A3 /* FirebaseFirestore in Frameworks */,
 				B90BDF28271FF42F0011D6A3 /* FirebaseStorage in Frameworks */,
 			);
@@ -197,6 +199,7 @@
 				B90BDF23271FF42F0011D6A3 /* FirebaseAuth */,
 				B90BDF25271FF42F0011D6A3 /* FirebaseFirestore */,
 				B90BDF27271FF42F0011D6A3 /* FirebaseStorage */,
+				B914AD712779F2790087374E /* Introspect */,
 			);
 			productName = Collaction;
 			productReference = B93CFC1D271B181B003C1796 /* Collaction.app */;
@@ -227,6 +230,7 @@
 			mainGroup = B93CFC14271B181B003C1796;
 			packageReferences = (
 				B90BDF22271FF42F0011D6A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				B914AD702779F2790087374E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = B93CFC1E271B181B003C1796 /* Products */;
 			projectDirPath = "";
@@ -504,6 +508,14 @@
 				minimumVersion = 8.8.1;
 			};
 		};
+		B914AD702779F2790087374E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -521,6 +533,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B90BDF22271FF42F0011D6A3 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseStorage;
+		};
+		B914AD712779F2790087374E /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B914AD702779F2790087374E /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

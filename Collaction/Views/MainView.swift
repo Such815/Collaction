@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import UIKit
+import Introspect
 
 struct MainView: View {
     var body: some View {
@@ -25,6 +27,12 @@ struct MainView: View {
                         .font(.title2)
                         .fontWeight(.bold)
                 }
+        }.introspectTabBarController { controller in let bar = UITabBarAppearance()
+            bar.configureWithOpaqueBackground()
+            bar.backgroundColor = UIColor(CustomColours.LightGrey)
+            if #available(iOS 15.0, *) {
+                controller.tabBar.scrollEdgeAppearance = bar
+            }
         }
     }
 }
